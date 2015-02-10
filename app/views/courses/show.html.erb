@@ -1,7 +1,9 @@
 <h1><%= @course.title %></h1>
 <p>Level: <%= @course.level %></p>
-<p>Starts: <%= @course.start_time %></p>
-<p>Ends: <%= @course.end_time %></p>
+<p>Room: <%= @course.classroom.room %></p>
+<p>Floor: <%= @course.classroom.floor %></p>
+<p>Starts: <%= @course.start_time.to_s(:time) %></p>
+<p>Ends: <%= @course.end_time.to_s(:time) %></p>
 <p>Start date: <%= @course.start_date %></p>
 <p>End date: <%= @course.end_date %></p>
 <p>Description: <%= @course.description %></p>
