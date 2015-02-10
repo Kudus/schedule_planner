@@ -7,8 +7,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <nav>
+    <ul>
+      
+      <li><%= link_to 'Home', root_path %></li>
+      <li><%= link_to 'Create course', new_course_path %></li>
+      <li><%= link_to 'Courses', courses_path %></li>
+    </ul>
 
-<%= yield %>
+  </nav>
+  <%= yield %>
 
 </body>
 </html>

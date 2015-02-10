@@ -1,2 +1,9 @@
-<h1>Courses#show</h1>
-<p>Find me in app/views/courses/show.html.erb</p>
+<h1><%= @course.title %></h1>
+<p>Level: <%= @course.level %></p>
+<p>Starts: <%= @course.start_time %></p>
+<p>Ends: <%= @course.end_time %></p>
+<p>Start date: <%= @course.start_date %></p>
+<p>End date: <%= @course.end_date %></p>
+<p>Description: <%= @course.description %></p>
+<%= link_to 'Edit', edit_course_path(@course) %>
+<%= link_to 'Delete', course_path(@course), method: :delete %>

@@ -1,2 +1,4 @@
-<h1>Courses#index</h1>
-<p>Find me in app/views/courses/index.html.erb</p>
+<h1>Courses</h1>
+<% @courses.each do |course| %>
+<p><%= course.title %> <%= course.start_date.to_formatted_s(:short) %></p>
+<% end %>
