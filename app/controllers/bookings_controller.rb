@@ -13,18 +13,19 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
   end
 
-  def new
-    @booking = Booking.new
-  end
-
   def create
+    @user = current_user
+    @booking = Booking.create(params.require(:booking).permit(:course_id, :user_id, :status))
+    if @booking.save
+      redirect_to user_path(@user)
+    else
+      render 'index'
+    end  
   end
 
   def destroy
-  end
-
-  private
-  def booking_params
-
+   @booking = Booking.find(params[:id])
+   @booking.destroy
+   redirect_to user_path(current_user)
   end
 end

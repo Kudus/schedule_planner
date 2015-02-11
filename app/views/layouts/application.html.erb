@@ -11,8 +11,8 @@
     <ul>
       
       <li><%= link_to 'Home', root_path %></li>
-      <li><%= link_to 'Create course', new_course_path %></li>
       <li><%= link_to 'Courses', courses_path %></li>
+      <li><%= link_to 'Bookings', user_path(current_user) if user_signed_in? %></li>
     </ul>
 
   </nav>

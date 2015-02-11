@@ -2,7 +2,7 @@ class CoursesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_course, only: [:show, :edit, :update, :destroy]
   def index
-    @courses = Course.where("start_date >= ?", Date.today)
+    @courses = Course.where("start_date >= ?", Date.today).order('start_date ASC')
   end
 
   def show
