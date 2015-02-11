@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+gem 'rails_12factor'
 gem 'simple_form'
 gem 'devise'
 
