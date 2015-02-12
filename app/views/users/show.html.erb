@@ -1,6 +1,10 @@
-<h1><%= @user.email %></h1>
-<h2>Role: <%= @user.role %></h2>
+<h2><%= @user.email %></h2>
+<p><%= @user.role %></p>
 <% @user.bookings.each do |booking| %>
-<p><%= booking.course.title %> <%= booking.course.start_date.to_formatted_s(:short) %> <%= link_to 'delete', booking_path(booking), method: :delete %></p>
-</p>
+  <p>
+    <%= booking.course.title %> <%= booking.course.start_date.to_formatted_s(:short) %> 
+    <% if can? :destroy, booking %> 
+      <%= link_to 'delete', booking_path(booking), method: :delete %>
+    <% end %>
+  </p>
 <% end %>

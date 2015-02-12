@@ -17,6 +17,14 @@
       </ul>
       <section class="top-bar-section">
         <ul class="left">
+          <% if user_signed_in? && current_user.admin? %>
+            <li>
+              <%= link_to 'Classrooms', classrooms_path %>
+              <ul>
+                <li><%= link_to 'New', new_classroom_path %></li>
+              </ul>
+            </li>
+          <% end %>
           <li><%= link_to 'Courses', courses_path %></li>
           <li><%= link_to 'Bookings', user_path(current_user) if user_signed_in? %></li>
         </ul>  
@@ -36,9 +44,7 @@
   </div>
   <div class="row">
     <div class="small-6 small-offset-3 columns"><h2><%= link_to 'Schedule Planner', root_path %></h2></div>
-  </div>
-  <div class="row">
-    <div class="small-6 small-offset-3 columns">
+    <div class="small-3 columns" >
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
     </div>

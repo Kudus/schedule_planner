@@ -9,7 +9,7 @@ class Ability
         can :manage, :all
       else
         can :read, :all
-        can :destroy, Booking, user_id: user.id
+        can [:create, :destroy], Booking, user_id: user.id
       end
 
       
