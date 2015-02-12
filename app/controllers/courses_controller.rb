@@ -1,4 +1,5 @@
 class CoursesController < ApplicationController
+  skip_authorization_check :only => [:index, :show]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_course, only: [:show, :edit, :update, :destroy]
   def index

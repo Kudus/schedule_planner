@@ -1,5 +1,6 @@
 class ClassroomsController < ApplicationController
   before_action :authenticate_user!
+  authorize_resource
   def index
     @classrooms = Classroom.all
   end
