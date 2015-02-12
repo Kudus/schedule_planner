@@ -18,9 +18,9 @@
       <section class="top-bar-section">
         <ul class="left">
           <% if user_signed_in? && current_user.admin? %>
-            <li>
+            <li class="has-dropdown">
               <%= link_to 'Classrooms', classrooms_path %>
-              <ul>
+              <ul class="dropdown">
                 <li><%= link_to 'New', new_classroom_path %></li>
               </ul>
             </li>
