@@ -13,7 +13,7 @@
         <li class="name">
           <h1><%= link_to image_tag("ga.png", width: "200" ), root_path %></h1>
         </li>
-        
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
       </ul>
       <section class="top-bar-section">
         <ul class="left">
@@ -27,17 +27,17 @@
           <% end %>
           <li><%= link_to 'Courses', courses_path %></li>
           <li><%= link_to 'Bookings', user_path(current_user) if user_signed_in? %></li>
-        </ul>  
-        <ul class="right">  
+        </ul>
+        <ul class="right">
           <% if user_signed_in? %>
-            <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li> 
+            <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
             <li class="divider"></li>
-             <li><%= link_to('Edit registration', edit_user_registration_path) %></li> 
+             <li><%= link_to('Edit registration', edit_user_registration_path) %></li>
           <% else %>
             <li><%= link_to('Login', new_user_session_path)  %></li>
             <li class="divider"></li>
             <li><%= link_to('Sign up', new_user_registration_path)  %></li>
-          <% end %>  
+          <% end %>
         </ul>
       </section>
     </nav>
@@ -54,4 +54,3 @@
   </div>
 </body>
 </html>
-
