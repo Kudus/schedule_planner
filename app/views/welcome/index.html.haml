@@ -1,0 +1,5 @@
+%p= Date.today.to_formatted_s(:long_ordinal)
+- @courses.each do |course|
+  %p
+    = link_to course.title, course_path(course)
+    = course.start_time.to_s(:time)

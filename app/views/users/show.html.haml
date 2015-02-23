@@ -1,0 +1,8 @@
+%h2= @user.email
+%p= @user.role
+- @user.bookings.each do |booking|
+  %p
+    = booking.course.title
+    = booking.course.start_date.to_formatted_s(:short)
+    - if can? :destroy, booking
+      = link_to 'delete', booking_path(booking), method: :delete

@@ -1,0 +1,8 @@
+%h1 Classroom List
+- @classrooms.each do |classroom|
+  %p
+    = classroom.floor
+    floor, room
+    = classroom.room
+    = link_to 'edit', edit_classroom_path(classroom)
+    = link_to 'delete', classroom_path(classroom), method: :delete

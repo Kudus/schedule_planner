@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+gem 'haml-rails'
 gem 'rails_12factor'
 gem 'simple_form'
 gem 'devise'
@@ -41,11 +42,10 @@ group :development, :test do
   gem 'byebug'
   gem 'pry-rails'
   gem 'pry-byebug'
-  
+
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-
