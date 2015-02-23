@@ -1,0 +1,42 @@
+!!!
+%html
+  %head
+    %title SchedulePlanner
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    .contain-to-grid
+      %nav.top-bar{"data-topbar" => "", :role => "navigation"}
+        %ul.title-area
+          %li.name
+            %h1= link_to image_tag("ga.png", width: "200" ), root_path
+          %li.toggle-topbar.menu-icon
+            %a{:href => "#"}
+              %span Menu
+        %section.top-bar-section
+          %ul.left
+            - if user_signed_in? && current_user.admin?
+              %li.has-dropdown
+                = link_to 'Classrooms', classrooms_path
+                %ul.dropdown
+                  %li= link_to 'New', new_classroom_path
+            %li= link_to 'Courses', courses_path
+            %li= link_to 'Bookings', user_path(current_user) if user_signed_in?
+          %ul.right
+            - if user_signed_in?
+              %li= link_to('Logout', destroy_user_session_path, :method => :delete)
+              %li.divider
+              %li= link_to('Edit registration', edit_user_registration_path)
+            - else
+              %li= link_to('Login', new_user_session_path)
+              %li.divider
+              %li= link_to('Sign up', new_user_registration_path)
+    .row
+      .small-6.small-offset-3.columns
+        %h2= link_to 'Schedule Planner', root_path
+      .small-3.columns
+        %p.notice= notice
+        %p.alert= alert
+    .row
+      .small-8.small-offset-2.columns= yield
