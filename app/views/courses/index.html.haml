@@ -1,0 +1,6 @@
+%h1 Courses
+%p= link_to 'Create course', new_course_path
+- @courses.each do |course|
+  %p
+    = link_to course.title, course_path(course)
+    = course.start_date.to_formatted_s(:short)

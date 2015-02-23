@@ -1,0 +1,38 @@
+%h1= @course.title
+%p
+  Level:
+  = @course.level
+%p
+  Room:
+  = @course.classroom.room
+%p
+  Floor:
+  = @course.classroom.floor
+%p
+  Starts:
+  = @course.start_time.to_s(:time)
+%p
+  Ends:
+  = @course.end_time.to_s(:time)
+%p
+  Start date:
+  = @course.start_date
+%p
+  End date:
+  = @course.end_date
+%p
+  Description:
+  = @course.description
+
+= link_to 'Edit', edit_course_path(@course)
+= link_to 'Delete', course_path(@course), method: :delete
+
+- if user_signed_in?
+  = form_for Booking.new do |f|
+    = f.hidden_field :course_id, value: @course.id
+    = f.hidden_field :user_id, value: current_user.id
+    = f.hidden_field :status, value: 'pending'
+    = f.submit 'Book Course'
+
+%p You must sign up to book a course with General Assembly.
+= link_to "signup", new_user_registration_path
